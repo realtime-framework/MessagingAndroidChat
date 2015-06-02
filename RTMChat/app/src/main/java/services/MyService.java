@@ -5,6 +5,7 @@ import ibt.ortc.api.Ortc;
 import ibt.ortc.extensibility.OnConnected;
 import ibt.ortc.extensibility.OnException;
 import ibt.ortc.extensibility.OnMessage;
+import ibt.ortc.extensibility.OnMessageWithPayload;
 import ibt.ortc.extensibility.OrtcClient;
 import ibt.ortc.extensibility.OrtcFactory;
 import rtmchat.realtime.co.rtmchat.R;
@@ -19,6 +20,8 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+
+import java.util.Map;
 
 public class MyService extends Service {
 
@@ -36,18 +39,26 @@ public class MyService extends Service {
 					factory = ortc.loadOrtcFactory("IbtRealtimeSJ");
 					client = factory.createClient();
 					client.setHeartbeatActive(true);
-					Ortc.setOnPushNotification(new OnMessage() {
+					Ortc.setOnPushNotification(new OnMessageWithPayload() {
 						@Override
-						public void run(OrtcClient sender, final String channel, final String message) {
-							Log.i(TAG, String.format("Push notification on channel %s: %s", channel, message));
-                            if(!MessageActivity.isInForeground() && !NotificationActivity.isInForeground()) {
-                                String parts [] = message.split(":");
-                                String user = parts[0].split("_")[parts[0].split("_").length - 1];
-                                String msg = parts[1];
-                                displayNotification(channel, user,msg);
-                            }
+						public void run(OrtcClient sender, final String channel, final String message, Map<String, Object> payload) {
+
+							if(payload != null) {
+								Log.i(TAG, String.format("Push notification on channel %s: %s payload: %s", channel, message, payload.toString()));
+							}else{
+								Log.i(TAG, String.format("Push notification on channel %s: %s ", channel, message));
+							}
+
+							if(!MessageActivity.isInForeground() && !NotificationActivity.isInForeground()) {
+								String parts [] = message.split(":");
+								String user = parts[0].split("_")[parts[0].split("_").length - 1];
+								String msg = parts[1];
+								displayNotification(channel, user,msg);
+							}
+
 						}
 					});
+
 					client.setApplicationContext(getApplicationContext());
 					client.setGoogleProjectId(Config.PROJECT_ID);
 				} catch (Exception e) {

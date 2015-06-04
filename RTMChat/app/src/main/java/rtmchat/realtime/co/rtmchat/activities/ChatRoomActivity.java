@@ -97,8 +97,10 @@ public class ChatRoomActivity extends ActionBarActivity implements InterfaceRefr
 	}
 
 	public void delChat(String chatName) {
+		OrtcHandler.unsubscribeChannel(chatName);
 		int index = this.channels.indexOf(chatName);
 		channels.remove(index);
+
 		clearChannelsList();
 		setChannels();
 	}

@@ -16,6 +16,7 @@ import ibt.ortc.extensibility.OrtcClient;
 import ibt.ortc.extensibility.OrtcFactory;
 import interfaces.InterfaceRefresher;
 import preferences.PreferencesManager;
+import rtmchat.realtime.co.rtmchat.activities.MessageActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -49,6 +50,12 @@ public class OrtcHandler{
             }
             ;
         });
+	}
+
+
+	public static void unsubscribeChannel(String channel)
+	{
+		client.unsubscribe(channel);
 	}
 	
 	public static void prepareClient(Context context, InterfaceRefresher rootView){
@@ -143,7 +150,7 @@ public class OrtcHandler{
 		list.setUnRead(list.getUnRead() + 1);
 		list.addMessage(newMsg);
 		
-		if(messagesView != null)
+		if(messagesView != null && ((MessageActivity)messagesView).getChannel().equals(channel))
 			messagesView.refreshData(newMsg);
 		
 		if(chatRoom != null)

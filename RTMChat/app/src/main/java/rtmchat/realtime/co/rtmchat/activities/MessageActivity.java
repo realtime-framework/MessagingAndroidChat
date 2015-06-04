@@ -25,6 +25,11 @@ public class MessageActivity extends ActionBarActivity implements InterfaceRefre
 	private boolean pause;
     private static boolean mIsInForegroundMode;
 
+
+	public String getChannel(){
+		return channel;
+	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

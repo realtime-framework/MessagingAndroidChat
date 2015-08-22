@@ -41,7 +41,7 @@ public class MyService extends Service {
 					client.setHeartbeatActive(true);
 					Ortc.setOnPushNotification(new OnMessageWithPayload() {
 						@Override
-						public void run(OrtcClient sender, final String channel, final String message, Map<String, Object> payload) {
+						public void run(OrtcClient sender, final String channel, final String message, Map payload) {
 
 							if(payload != null) {
 								Log.i(TAG, String.format("Push notification on channel %s: %s payload: %s", channel, message, payload.toString()));
@@ -68,7 +68,7 @@ public class MyService extends Service {
 			if(client != null){
 				client.onConnected = new OnConnected() {
 					public void run(final OrtcClient sender) {
-				        Log.i(TAG, String.format("Connected to: %s", ((OrtcClient) sender).getUrl()));
+				        Log.i(TAG, String.format("Connected to: %s", sender.getUrl()));
 					}
 				};
 				client.onException = new OnException() {

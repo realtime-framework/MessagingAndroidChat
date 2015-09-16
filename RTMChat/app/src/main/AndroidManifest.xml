@@ -50,7 +50,7 @@
             android:value="@integer/google_play_services_version" />
 
         <receiver
-            android:name="ibt.ortc.extensibility.GcmOrtcBroadcastReceiver"
+            android:name="receiver.GcmReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -59,15 +59,6 @@
         </receiver>
 
         <service android:name="ibt.ortc.extensibility.GcmOrtcIntentService" />
-
-        <service android:name="services.MyService" />
-
-        <receiver
-            android:name="receiver.MyReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
 
     </application>
 

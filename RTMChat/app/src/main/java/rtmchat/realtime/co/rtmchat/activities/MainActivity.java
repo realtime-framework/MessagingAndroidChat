@@ -1,12 +1,10 @@
 package rtmchat.realtime.co.rtmchat.activities;
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,7 +19,6 @@ import handlers.OrtcHandler;
 import interfaces.InterfaceRefresher;
 import preferences.PreferencesManager;
 import rtmchat.realtime.co.rtmchat.R;
-import services.MyService;
 
 
 public class MainActivity extends ActionBarActivity implements InterfaceRefresher {
@@ -32,10 +29,6 @@ public class MainActivity extends ActionBarActivity implements InterfaceRefreshe
 		setContentView(R.layout.activity_main);
 
 		OrtcHandler.prepareClient(getApplicationContext(),this);
-
-        if(!isMyServiceRunning(MyService.class)) {
-            startService(new Intent(this, MyService.class));
-        }
 
         EditText inputUser = (EditText) this.findViewById(R.id.nickNameInput);
 		
@@ -107,14 +100,4 @@ public class MainActivity extends ActionBarActivity implements InterfaceRefreshe
 		});
 		
 	}
-
-    private boolean isMyServiceRunning(Class<?> serviceClass) {
-        ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
-        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
-            if (serviceClass.getName().equals(service.service.getClassName())) {
-                return true;
-            }
-        }
-        return false;
-    }
 }

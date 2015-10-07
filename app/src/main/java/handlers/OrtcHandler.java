@@ -141,10 +141,16 @@ public class OrtcHandler{
 		OrtcHandler.client.send(channel, msg.toString());
 	}
 	
-	public void handleMessage(String msg, String channel){		
-		String[] parts = msg.split(":");
+	public void handleMessage(String msg, String channel){
         SimpleDateFormat sdf = new SimpleDateFormat(Config.DATE_FORMAT);
-		Message newMsg = new Message(parts[0], parts[1],sdf.format(new Date()));
+		Message newMsg = null;
+		if(msg.contains(":"))
+		{
+			newMsg = new Message(msg.substring(0, msg.indexOf(":")), msg.substring(msg.indexOf(":") + 1), sdf.format(new Date()));
+		}
+		else {
+			newMsg = new Message("Unknown user", msg, sdf.format(new Date()));
+		}
 		
 		Channel list = messages.get(channel);
 		list.setUnRead(list.getUnRead() + 1);
@@ -155,6 +161,7 @@ public class OrtcHandler{
 		
 		if(chatRoom != null)
 			chatRoom.refreshData(newMsg);
+
 	}
 	
 }

@@ -9,13 +9,11 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import co.realtime.messagingandroidchat.MessageActivity;
 import co.realtime.messagingandroidchat.NotificationActivity;
 import co.realtime.messagingandroidchat.R;
-import ibt.ortc.api.Ortc;
 import ibt.ortc.extensibility.GcmOrtcBroadcastReceiver;
 import ibt.ortc.plugins.IbtRealtimeSJ.OrtcMessage;
 
@@ -58,10 +56,18 @@ public class GcmReceiver extends GcmOrtcBroadcastReceiver {
             try {
 
                 // parsed message format: <user>:<chat message>
+                String user = null;
+                String chatMessage = null;
+                if(parsedMessage.contains(":"))
+                {
+                    user = parsedMessage.substring(0, parsedMessage.indexOf(":"));
+                    chatMessage = parsedMessage.substring(parsedMessage.indexOf(":") + 1);
+                }
+                else {
+                    user = "Unknown user";
+                    chatMessage = parsedMessage;
+                }
 
-                String parts [] = parsedMessage.split(":");
-                String user = parts[0].split("_")[parts[0].split("_").length - 1];
-                String chatMessage = parts[1];
 
                 NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                 Intent notificationIntent = new Intent(context, NotificationActivity.class);

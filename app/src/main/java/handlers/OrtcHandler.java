@@ -74,7 +74,7 @@ public class OrtcHandler{
             if(Config.CLUSTERURL != null){
                 client.setClusterUrl(Config.CLUSTERURL);
             } else {
-                client.setUrl(Config.CLUSTERURL);
+                client.setUrl(Config.URL);
             }
 
             client.setApplicationContext(selfHandler.context);

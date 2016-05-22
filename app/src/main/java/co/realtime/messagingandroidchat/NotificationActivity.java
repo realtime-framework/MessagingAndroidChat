@@ -52,7 +52,7 @@ public class NotificationActivity extends ActionBarActivity {
             refreshUI(user+":"+message);
 
             final TextView charNumber = (TextView) findViewById(R.id.charNumber);
-            charNumber.setText("" + 260);
+            charNumber.setText( String.valueOf(260));
 
             final EditText text = (EditText) this.findViewById(R.id.editMessage);
 

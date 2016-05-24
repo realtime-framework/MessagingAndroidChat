@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import config.Config;
 import domains.Message;
@@ -20,7 +20,7 @@ import ui.CustomTableRow;
 
 public class ChatRoomActivity extends ActionBarActivity implements InterfaceRefresher {
 	private Boolean editing;
-	private ArrayList<String> channels;
+	private List<String> channels;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

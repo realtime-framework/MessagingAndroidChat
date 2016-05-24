@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PreferencesManager {
 
@@ -36,7 +37,7 @@ public class PreferencesManager {
         e.commit();
     }
 
-    public ArrayList<String> loadChannels(){
+    public List<String> loadChannels(){
         String channels = settings.getString(CHANNELS,null);
         if(channels == null)
         {
@@ -45,7 +46,7 @@ public class PreferencesManager {
 
         String[] parts = channels.split(",");
 
-        ArrayList<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<String>();
 
         for (String channel : parts) {
             list.add(channel);
@@ -53,7 +54,7 @@ public class PreferencesManager {
         return list;
     }
 
-    public void saveChannels(ArrayList<String> channels){
+    public void saveChannels(List<String> channels){
         SharedPreferences.Editor e = settings.edit();
         StringBuilder channelsString = new StringBuilder();
 

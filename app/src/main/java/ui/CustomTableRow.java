@@ -114,7 +114,7 @@ public class CustomTableRow extends TableRow {
 		TextView unRead = (TextView) tr.findViewById(R.id.unRead);
 		Channel channelRef = OrtcHandler.selfHandler.messages.get(content);
 		if (channelRef.getUnRead() > 0)
-			unRead.setText("" + channelRef.getUnRead());
+			unRead.setText( String.valueOf(channelRef.getUnRead()) );
 		else {
 			unRead.setText("");
 		}

@@ -32,13 +32,13 @@ public class ComposeActivity extends ActionBarActivity {
 		
 		
 		final TextView charNumber = (TextView) findViewById(R.id.charNumber);
-    	charNumber.setText("" + Config.MSG_SIZE);
+    	charNumber.setText( String.valueOf(Config.MSG_SIZE));
 		
     	final EditText text = (EditText) this.findViewById(R.id.editMessage);
 		
 	    text.addTextChangedListener(new TextWatcher(){
 	        public void afterTextChanged(Editable s) {
-	        	charNumber.setText("" + (Config.MSG_SIZE - text.getText().toString().length()));
+	        	charNumber.setText(String.valueOf(Config.MSG_SIZE - text.getText().toString().length()));
 	        }
 	        public void beforeTextChanged(CharSequence s, int start, int count, int after){}
 	        public void onTextChanged(CharSequence s, int start, int before, int count){}

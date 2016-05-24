@@ -1,10 +1,11 @@
 package domains;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Channel {
 	private String name;
-	private ArrayList<Message> messages;
+	private List<Message> messages;
 	private int unRead;
 	
 	public Channel(String name) {
@@ -18,7 +19,7 @@ public class Channel {
 		this.messages.add(msg);
 	}
 	
-	public ArrayList<Message> getMessages(){
+	public List<Message> getMessages(){
 		return this.messages;
 	}
 

@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import domains.Channel;
 import domains.Message;
@@ -87,7 +87,7 @@ public class MessageActivity extends ActionBarActivity implements InterfaceRefre
     }
 
 	private void loadMsg() {
-        ArrayList<Message> messages = OrtcHandler.selfHandler.messages.get(channel).getMessages();
+        List<Message> messages = OrtcHandler.selfHandler.messages.get(channel).getMessages();
         for (Message msg : messages) {
             setmsg(msg);
         }

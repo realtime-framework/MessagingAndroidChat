@@ -4,9 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
+import java.util.*;
 
 import co.realtime.messagingandroidchat.MessageActivity;
 import config.Config;
@@ -31,7 +29,7 @@ public class OrtcHandler{
     public static OrtcHandler selfHandler;
 
 	public static OrtcClient client = null;
-	public HashMap<String, Channel> messages;
+	public Map<String, Channel> messages;
 	public Boolean isConnected;
 	public InterfaceRefresher rootView;
     public Context context;
@@ -85,7 +83,7 @@ public class OrtcHandler{
 				public void run(OrtcClient sender) {
 					selfHandler.isConnected = true;
 
-					ArrayList<String> channels = PreferencesManager.getInstance(selfHandler.context).loadChannels();
+					List<String> channels = PreferencesManager.getInstance(selfHandler.context).loadChannels();
 					for (String channel : channels) {
 						subscribeChannel(channel);
 					}

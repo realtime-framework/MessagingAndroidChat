@@ -9,7 +9,7 @@ import java.util.List;
 
 public class PreferencesManager {
 
-	private SharedPreferences settings;
+	private final SharedPreferences settings;
 
     public static String USER = "USER";
     public static String CHANNELS = "CHANNELS";

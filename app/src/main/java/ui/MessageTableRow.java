@@ -12,10 +12,10 @@ import domains.Message;
 
 public class MessageTableRow extends TableRow {
 
-	private Boolean isFromUser;
-	private Context context;
-	private Message msg;
-	private TableLayout tableMessages;
+	private final Boolean isFromUser;
+	private final Context context;
+	private final Message msg;
+	private final TableLayout tableMessages;
 
 	public MessageTableRow(Context context, TableLayout tableMessages, Boolean fromUser, Message msg) {
 		super(context);

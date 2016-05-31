@@ -20,9 +20,9 @@ import handlers.OrtcHandler;
 
 public class CustomTableRow extends TableRow {
 
-	private String content;
-	private TableLayout container;
-	private Context context;
+	private final String content;
+	private final TableLayout container;
+	private final Context context;
 
 	public CustomTableRow(Context context, TableLayout container, int type,String content) {
 		super(context);

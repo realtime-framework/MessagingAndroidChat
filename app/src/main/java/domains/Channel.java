@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Channel {
-	private String name;
-	private List<Message> messages;
+	private final String name;
+	private final List<Message> messages;
 	private int unRead;
 	
 	public Channel(String name) {

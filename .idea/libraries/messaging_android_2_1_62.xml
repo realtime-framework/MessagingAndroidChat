@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="messaging-android-2.1.62">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/co.realtime/messaging-android/2.1.62/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/co.realtime/messaging-android/2.1.62/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/co.realtime/messaging-android/2.1.62/f54a4c53bb5bff3fe52736eaa84efb10c3a7816b/messaging-android-2.1.62-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -60,8 +60,8 @@ public class GcmReceiver extends GcmOrtcBroadcastReceiver {
                 String chatMessage = null;
                 if(parsedMessage.contains(":"))
                 {
-                    user = parsedMessage.substring(0, parsedMessage.indexOf(":"));
-                    chatMessage = parsedMessage.substring(parsedMessage.indexOf(":") + 1);
+                    user = parsedMessage.substring(0, parsedMessage.indexOf(':'));
+                    chatMessage = parsedMessage.substring(parsedMessage.indexOf(':') + 1);
                 }
                 else {
                     user = "Unknown user";

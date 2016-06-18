@@ -144,7 +144,7 @@ public class OrtcHandler{
 		Message newMsg = null;
 		if(msg.contains(":"))
 		{
-			newMsg = new Message(msg.substring(0, msg.indexOf(":")), msg.substring(msg.indexOf(":") + 1), sdf.format(new Date()));
+			newMsg = new Message(msg.substring(0, msg.indexOf(':')), msg.substring(msg.indexOf(':') + 1), sdf.format(new Date()));
 		}
 		else {
 			newMsg = new Message("Unknown user", msg, sdf.format(new Date()));

@@ -10,7 +10,7 @@ public class Channel {
 	
 	public Channel(String name) {
 		this.name = name;
-		this.messages = new ArrayList<Message>();
+		this.messages = new ArrayList<>();
 		this.unRead = 0;
 	}
 	

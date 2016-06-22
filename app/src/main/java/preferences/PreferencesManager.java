@@ -41,12 +41,12 @@ public class PreferencesManager {
         String channels = settings.getString(CHANNELS,null);
         if(channels == null)
         {
-            return new ArrayList<String>();
+            return new ArrayList<>();
         }
 
         String[] parts = channels.split(",");
 
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
 
         for (String channel : parts) {
             list.add(channel);
@@ -59,7 +59,7 @@ public class PreferencesManager {
         StringBuilder channelsString = new StringBuilder();
 
         for (String channel : channels) {
-            channelsString.append(channel + ",");
+            channelsString.append(channel).append(",");
         }
 
         e.putString(CHANNELS,channelsString.toString());

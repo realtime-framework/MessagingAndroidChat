@@ -60,7 +60,7 @@ public class OrtcHandler{
 		selfHandler = new OrtcHandler();
 		selfHandler.context = context;
         selfHandler.rootView = rootView;
-		selfHandler.messages = new HashMap<String, Channel>();
+		selfHandler.messages = new HashMap<>();
 
 		Ortc api = new Ortc();
 		OrtcFactory factory;

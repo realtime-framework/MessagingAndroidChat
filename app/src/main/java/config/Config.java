@@ -1,6 +1,6 @@
 package config;
 
-public class Config {
+public final class Config {
 
 	final public static String CLUSTERURL = "http://ortc-developers.realtime.co/server/2.1/";
     //final public static String CLUSTERURL = null;
@@ -17,4 +17,9 @@ public class Config {
     final public static int MSG_SIZE = 260;
 
     final public static String DATE_FORMAT = "yyyy-MM-dd HH:mm";
+
+    private Config() throws InstantiationException {
+        throw new InstantiationException("This class is not created for instantiation");
+    }
+
 }

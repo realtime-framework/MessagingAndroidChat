@@ -3,8 +3,8 @@ Part of the [The Realtime® Framework](http://framework.realtime.co), Realtime C
 
 If your website or mobile app has data that needs to be updated in the user’s interface as it changes (e.g. real-time stock quotes or ever changing social news feed) Realtime Cloud Messaging is the reliable, easy, unbelievably fast, “works everywhere” solution.
 
-## The Android + GCM Push Notifications sample app
-This sample app uses the Realtime® Framework Pub/Sub Android library to connect, send and receive messages through a Realtime® Server in the cloud. Through the integrated use of Google Cloud Messaging (GCM) messages are delivered to users as push notifications when the app is not running. 
+## The Android + FCM Push Notifications sample app
+This sample app uses the Realtime® Framework Pub/Sub Android library to connect, send and receive messages through a Realtime® Server in the cloud. Through the integrated use of Firebase Cloud Messaging (FCM) messages are delivered to users as push notifications when the app is not running. 
 
 ![ScreenShot](http://messaging-public.realtime.co/screenshots/2.1.0/Android/example1.png) ![ScreenShot](http://messaging-public.realtime.co/screenshots/2.1.0/Android/example2.png)
 
@@ -13,7 +13,7 @@ This sample app uses the Realtime® Framework Pub/Sub Android library to connect
 
 > NOTE: For simplicity these samples assume you're using a Realtime® Framework developers' application key with the authentication service disabled (every connection will have permission to publish and subscribe to any channel). For security guidelines please refer to the [Security Guide](http://messaging-public.realtime.co/documentation/starting-guide/security.html). 
 > 
-> **Don't forget to replace `YOUR_APPLICATION_KEY` with your own application key and `YOUR_PROJECT_ID` with your GCM Project Number. If you don't already own a free Realtime® Framework application key, [get one now](https://accounts.realtime.co/signup/).**
+> **Don't forget to replace `YOUR_APPLICATION_KEY` with your Realtime application key and `YOUR_FIREBASE_SENDER_ID` with your Firebase Sender ID in the [Config.java](https://github.com/realtime-framework/MessagingAndroidChat/blob/master/app/src/main/java/config/Config.java) file. If you don't already have a free Realtime® Framework application key, [get one now](https://accounts.realtime.co/signup/).**
 
 ## Prerequisites
 
